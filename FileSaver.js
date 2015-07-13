@@ -233,13 +233,7 @@ var saveAs = saveAs
 // while `this` is nsIContentFrameMessageManager
 // with an attribute `content` that corresponds to the window
 
-if (typeof module !== "undefined" && module !== null) {
-    module.exports = saveAs;
-} else if ((typeof define !== "undefined" && define !== null) && (define.amd != null)) {
-    define([], function () {
-        return saveAs;
-    });
-}
+
 
 String.prototype.endsWithAny = function () {
     var strArray = Array.prototype.slice.call(arguments),
@@ -293,3 +287,17 @@ var saveTextAs = saveTextAs
         return retValue;
     }
 })
+
+if (typeof module !== "undefined" && module !== null) {
+    module.exports = {
+      saveAs: saveAs 
+      saveTextAs: saveTextAs
+    };
+} else if ((typeof define !== "undefined" && define !== null) && (define.amd != null)) {
+    define([], function () {
+        return {
+          saveAs: saveAs 
+          saveTextAs: saveTextAs
+        };
+    });
+}
