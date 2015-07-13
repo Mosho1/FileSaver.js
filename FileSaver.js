@@ -225,14 +225,13 @@ var saveAs = saveAs
       };
       return saveAs;
   }(
-	   typeof self !== "undefined" && self
-	|| typeof window !== "undefined" && window
-	|| this.content
+     typeof self !== "undefined" && self
+  || typeof window !== "undefined" && window
+  || this.content
 ));
 // `self` is undefined in Firefox for Android content script context
 // while `this` is nsIContentFrameMessageManager
 // with an attribute `content` that corresponds to the window
-
 
 
 String.prototype.endsWithAny = function () {
@@ -290,14 +289,14 @@ var saveTextAs = saveTextAs
 
 if (typeof module !== "undefined" && module !== null) {
     module.exports = {
-      saveAs: saveAs 
-      saveTextAs: saveTextAs
-    };
+        saveAs: saveAs,
+       saveTextAs: saveTextAs
+     };
 } else if ((typeof define !== "undefined" && define !== null) && (define.amd != null)) {
     define([], function () {
         return {
-          saveAs: saveAs 
-          saveTextAs: saveTextAs
-        };
+        saveAs: saveAs,
+       saveTextAs: saveTextAs
+     };
     });
 }
